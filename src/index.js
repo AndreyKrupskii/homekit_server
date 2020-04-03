@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const Store = require('./Store');
 
 const SECRET = process.env.SECRET;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 const store = new Store();
@@ -53,7 +54,7 @@ app.use((error, req, res, next) => {
 
 (async () => {
   await store.load();
-  app.listen(3000, () => {
-    console.info('Listening incoming requests on 3000 port...');
+  app.listen(PORT, () => {
+    console.info(`Listening incoming requests on ${PORT} port...`);
   });
 })();
