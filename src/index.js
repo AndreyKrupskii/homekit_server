@@ -12,6 +12,7 @@ const store = new Store();
 app.use(bodyParser.json());
 
 app.use('/', (req, res, next) => {
+  console.log(`Process incoming request: ${req.originalUrl}`);
   const token = req.headers.token;
   try {
     jwt.verify(token, SECRET);
